@@ -19,7 +19,7 @@ class Header extends React.Component {
 
     render() {
 
-        return <Widget.Navbar size={ Widget.SIZE.S } >
+        return <Widget.Navbar>
 
             <Widget.NavbarItem type={Widget.NAVBAR_ITEM.TITLE} >
                 <img src="/logo192.png" width="13%" alt="logo"/>

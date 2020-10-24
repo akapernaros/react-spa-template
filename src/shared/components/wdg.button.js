@@ -1,29 +1,38 @@
 import React from "react";
 import PropTypes from 'prop-types';
-import { Button } from "react-bootstrap";
 import { APPEARANCE } from "./constants";
 
 
 export class WButton extends React.Component {
 
-    render() {
-        let type = APPEARANCE.NORMAL;
-        if (this.props.type) {
-            type = this.props.type;
+    getClasses() {
+        let cl = `btn btn-${this.props.type} `;
+        if (this.props.className) {
+            cl = cl + this.props.className;
         }
-        return (
-            <Button variant={ type }
-                    onClick={this.props.onClick}
-                    className={this.props.classes}
-                    block={this.props.fullWidth}>
-                {this.props.children}
-            </Button>);
+        if (this.props.fullWidth && this.props.fullWidth === "true") {
+            cl = cl + ' btn-block ';
+        }
+        return cl
     }
+
+    render() {
+        return (
+            <button type='button'
+                    onClick={ this.props.onClick }
+                    className={ this.getClasses() }>
+                { this.props.children }
+            </button>);
+    }
+}
+
+WButton.defaultProps = {
+    type: APPEARANCE.constructor
 }
 
 WButton.propsType = {
     onClick: PropTypes.func.isRequired,
     type: PropTypes.string,
-    classes: PropTypes.string,
+    className: PropTypes.string,
     fullWidth: PropTypes.bool
 }

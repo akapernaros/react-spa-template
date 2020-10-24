@@ -1,7 +1,7 @@
 import React from 'react';
 import { Navbar } from 'react-bootstrap';
 import PropTypes from 'prop-types';
-import {NB_ITEM_TYPE} from "./constants";
+import {NB_ITEM_TYPE, SIZE} from "./constants";
 
 class WNavbar extends React.Component {
 
@@ -12,6 +12,9 @@ class WNavbar extends React.Component {
     }
 }
 
+WNavbar.defaultProps = {
+    size: SIZE.S
+}
 WNavbar.propTypes = {
     children: PropTypes.node.isRequired,
     size: PropTypes.string.isRequired

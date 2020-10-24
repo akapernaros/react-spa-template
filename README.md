@@ -1,7 +1,8 @@
-#react-spa-template
-This is template I use for my react single-page applications. It containes all aspects that I need for creating an app without "starting from scratch".
+# react-spa-template
+This is a template for react single-page applications. It contains all aspects needed for creating an app 
+without "starting from scratch".
 
-The following libraries/aspects are already integrated:
+This template integrates the following libraries/aspects:
 * i18n using `react-i18next`
 * Style/css, layout using `bootstrap`
 * components using `react-bootstrap` (wrapped in shared components)  
@@ -29,8 +30,8 @@ The build is minified and the filenames include the hashes.<br />
 Your app is ready to be deployed!
 
 #i18next
-Project uses i18next(https://www.i18next.com/) and the corresponding react implementation (https://react.i18next.com/). 
-i18n in react is really tortuous. However after evaluating other frameworks I decided to use i18next.  
+Project uses i18next(https://www.i18next.com/), and the corresponding React implementation (https://react.i18next.com/). 
+i18n in react is really tortuous. However, after evaluating other frameworks I decided to use i18next.  
 
 I decided to integrate translations files into the build not loading them dynamically from /public/locales. So no use of `i18next-http-backen` module
 
