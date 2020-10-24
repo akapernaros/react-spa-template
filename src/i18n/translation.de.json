@@ -1,0 +1,32 @@
+{
+  "common": {
+    "title": "Vorlage",
+    "actions": {
+      "save": "Speichern",
+      "cancel": "Abbrechen",
+      "continue": "Weiter"
+    },
+    "message": {
+      "dropdown": "Bitte auswählen ..."
+    },
+    "labels" : {
+      "language" : "Sprache"
+    },
+    "languages": {
+      "de": "Deutsch",
+      "en": "Englisch"
+    }
+  },
+  "app": {
+    "labels": {
+      "dropdown": "Eine Dropdown",
+      "button": "Ein Button",
+      "button-block": "Button (breit)"
+    },
+    "select": {
+      "one": "Eins",
+      "two": "Zwei",
+      "three": "Drei"
+    }
+  }
+}

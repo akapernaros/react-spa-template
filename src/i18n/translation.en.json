@@ -1,0 +1,32 @@
+{
+  "common": {
+    "title": "Template",
+    "actions": {
+      "save": "Save",
+      "cancel": "Cancel",
+      "continue": "Continue"
+    },
+    "message": {
+      "dropdown": "Please select ..."
+    },
+    "labels" : {
+      "language" : "Language"
+    },
+    "languages": {
+      "de": "German",
+      "en": "English"
+    }
+  },
+  "app": {
+    "labels": {
+      "dropdown": "A Dropdown",
+      "button": "A Button",
+      "button-block": "Button Block"
+    },
+    "select": {
+      "one": "One",
+      "two": "Two",
+      "three": "Three"
+    }
+  }
+}
