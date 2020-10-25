@@ -21,12 +21,16 @@
     "labels": {
       "dropdown": "Eine Dropdown",
       "button": "Ein Button",
-      "button-block": "Button (breit)"
+      "button-block": "Button (breit)",
+      "expandable": "Aufklappbare Sektion"
     },
     "select": {
       "one": "Eins",
       "two": "Zwei",
       "three": "Drei"
+    },
+    "text" : {
+      "tabbody": "Viel ein Text. Hier können auch andere Elemente untergebracht werden."
     }
   }
 }

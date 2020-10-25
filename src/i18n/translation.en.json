@@ -21,12 +21,16 @@
     "labels": {
       "dropdown": "A Dropdown",
       "button": "A Button",
-      "button-block": "Button Block"
+      "button-block": "Button Block",
+      "expandable": "Expandable Section"
     },
     "select": {
       "one": "One",
       "two": "Two",
       "three": "Three"
+    },
+    "text" : {
+      "tabbody": "This is some text. You may also pass elements and other stuff"
     }
   }
 }
