@@ -29,7 +29,7 @@ It correctly bundles React in production mode and optimizes the build for the be
 The build is minified and the filenames include the hashes.<br />
 Your app is ready to be deployed!
 
-##Kitchen-Sink
+## Kitchen-Sink
 As mentioned before that is my first contact with react and tried out a few things, just to see how react works and 
 experimenting how it "feels".
 
@@ -41,18 +41,18 @@ Import all components by `import { Widget } from "./shared/components";` or the 
 - __ExpandableSection__ is a section that expands by clicking on the top left button, showing or hiding the contents in the sections body. 
 The expansion state can be set using `expanded={ true }`. The component manages the state change using the toggle button internally. 
 
-##i18next
+## i18next
 Project uses i18next(https://www.i18next.com/), and the corresponding React implementation (https://react.i18next.com/). 
 i18n in react is really tortuous. However, after evaluating other frameworks i18next appeared to be the best one.  
 
 I decided to integrate translations files into the build not loading them dynamically from /public/locales. So no use of `i18next-http-backen` module
 
-##Bootstrap
+## Bootstrap
 Like most apps and frameworks this one does not start from scratch. It uses `bootstrap-css` for layout and styling. 
 The bootstrap-components `react-bootstrap` are wrapped as widgets to decouple them from the app-components. The shared 
 widget component also define a choice of "common styling" and functionality.
 
-##Next to come
+## Next to come
 * Support for Backend communication (Axios?)
 * Security using OpenID Connect (Authentication)
 * Authorisation, securing functions
