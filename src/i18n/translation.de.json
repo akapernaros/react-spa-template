@@ -22,7 +22,9 @@
       "dropdown": "Eine Dropdown",
       "button": "Ein Button",
       "button-block": "Button (breit)",
-      "expandable": "Aufklappbare Sektion"
+      "expandable": "Aufklappbare Sektion",
+      "twoway": "2 Wege Databinding",
+      "textinput": "Etwas eingeben"
     },
     "select": {
       "one": "Eins",
@@ -30,7 +32,8 @@
       "three": "Drei"
     },
     "text" : {
-      "tabbody": "Viel ein Text. Hier können auch andere Elemente untergebracht werden."
+      "tabbody": "Viel ein Text. Hier können auch andere Elemente untergebracht werden.",
+      "twoway": "Two-way-databinding unter Verwendung des \"Controlled-Input-Patterns\""
     }
   }
 }

@@ -35,11 +35,11 @@ class WExpandableHeader extends React.Component {
         return <div className={ this.props.classes }>
                     <div className="row">
                         <div className={ "col" }>
-                            <div className="float-left">
+                            <div className="float-left m-2">
                                 <h5>{ this.props.title }</h5>
                             </div>
-                            <div className="float-right">
-                                <button className={ `btn ${this.props.classes}` } type="button" onClick={ this.toggle }> { this.getIcon() }</button>
+                            <div className="float-right m-2">
+                                <button className={ `btn btn-sm ${this.props.classes}` } type="button" onClick={ this.toggle }> { this.getIcon() }</button>
                             </div>
                         </div>
                     </div>
@@ -108,7 +108,7 @@ class WExpandableSection extends React.Component {
 }
 
 WExpandableSection.defaultProps = {
-    size: 16,
+    size: 24,
     expanded: false,
     headerClass: 'bg-info'
 }

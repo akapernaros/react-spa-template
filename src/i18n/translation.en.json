@@ -22,7 +22,9 @@
       "dropdown": "A Dropdown",
       "button": "A Button",
       "button-block": "Button Block",
-      "expandable": "Expandable Section"
+      "expandable": "Expandable Section",
+      "twoway": "2 Way Databinding",
+      "textinput": "Type something in"
     },
     "select": {
       "one": "One",
@@ -30,7 +32,8 @@
       "three": "Three"
     },
     "text" : {
-      "tabbody": "This is some text. You may also pass elements and other stuff"
+      "tabbody": "This is some text. You may also pass elements and other stuff",
+      "twoway": "Two-way-databinding using the \"Controlled-Input-Patterns\""
     }
   }
 }
