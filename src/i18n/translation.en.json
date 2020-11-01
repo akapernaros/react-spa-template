@@ -18,22 +18,37 @@
     }
   },
   "app": {
-    "labels": {
-      "dropdown": "A Dropdown",
-      "button": "A Button",
-      "button-block": "Button Block",
-      "expandable": "Expandable Section",
-      "twoway": "2 Way Databinding",
-      "textinput": "Type something in"
-    },
-    "select": {
-      "one": "One",
-      "two": "Two",
-      "three": "Three"
-    },
     "text" : {
-      "tabbody": "This is some text. You may also pass elements and other stuff",
-      "twoway": "Two-way-databinding using the \"Controlled-Input-Patterns\""
+      "twoway": "Two-way-databinding using the \"Controlled-Input-Pattern\""
+    },
+    "kitchensink" : {
+      "title": "Kitchen Sink & Concepts",
+      "button": {
+        "label" : "A Button",
+        "label-block": "Button Block"
+      },
+      "dropdown": {
+        "label" : "A Dropdown",
+        "select": {
+          "one": "One",
+          "two": "Two",
+          "three": "Three"
+        }
+      },
+      "expandable": {
+        "title": "Expandable Section",
+        "text": "This is some text. This element is introduced first as it is used to group the examples below."
+      },
+      "twoway": {
+        "title" : "2 Way Databinding",
+        "text": "Two-way-databinding using the \"Controlled-Input-Pattern\"",
+        "label": "Type something in"
+      },
+      "list" : {
+        "title": "List",
+        "list-title" : "Simple Title",
+        "header-title" : "Own Header"
+      }
     }
   }
 }

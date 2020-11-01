@@ -3,7 +3,9 @@ export const APPEARANCE = {
     NORMAL: 'secondary',
     ALERT: 'danger',
     WARN: 'warning',
-    INFO: 'info'
+    INFO: 'info',
+    LIGHT: 'light',
+    DARK: 'dark'
 }
 
 export const SIZE = {

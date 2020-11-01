@@ -6,9 +6,24 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.6.5] - 2020-11-01
+### Added
+- Kitchen sink page and sub components
+- List element for displaying content (instead of table)
+- List example
+- Added appearance 'light' and 'dark'
+
+### Changed
+- Moved Apps content to kitchen sink page
+- Moved translations into an own section (app.<page>.<component>)
+- Fixed default button appearance
+
+### Removed
+- Log outputs in expandable section
+
 ## [0.6.1] - 2020-10-26
 ### Added
-- Example for two way data binding
+- Example for two-way data binding
 
 ### Changed
 - Fixed some layout issues on ExpandableSection

@@ -28,7 +28,7 @@ export class WButton extends React.Component {
 }
 
 WButton.defaultProps = {
-    type: APPEARANCE.constructor
+    type: APPEARANCE.NORMAL
 }
 
 WButton.propsType = {

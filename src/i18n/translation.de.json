@@ -18,22 +18,40 @@
     }
   },
   "app": {
-    "labels": {
-      "dropdown": "Eine Dropdown",
-      "button": "Ein Button",
-      "button-block": "Button (breit)",
-      "expandable": "Aufklappbare Sektion",
-      "twoway": "2 Wege Databinding",
-      "textinput": "Etwas eingeben"
-    },
-    "select": {
-      "one": "Eins",
-      "two": "Zwei",
-      "three": "Drei"
-    },
     "text" : {
-      "tabbody": "Viel ein Text. Hier können auch andere Elemente untergebracht werden.",
       "twoway": "Two-way-databinding unter Verwendung des \"Controlled-Input-Patterns\""
+    },
+    "kitchensink" : {
+      "title": "Beispiele und Konzepte",
+      "button": {
+        "label" : "Ein Button",
+        "label-block": "Button (breit)"
+      },
+      "dropdown": {
+        "label" : "Eine Dropdown",
+        "select": {
+          "one": "Eins",
+          "two": "Zwei",
+          "three": "Drei"
+        }
+      },
+      "expandable": {
+        "title": "Aufklappbare Sektion",
+        "text": "Text Text Text. Dieses Element wird als erstes vorgestellt, denn es wird verwendet um die Beispiele zu gruppieren."
+      },
+      "list": {
+        "title": "Einfache Überschrift"
+      },
+      "twoway": {
+        "title" : "2 Wege Databinding",
+        "text": "Two-way-databinding unter Verwendung des \"Controlled-Input-Patterns\"",
+        "label": "Etwas eingeben"
+      },
+      "list" : {
+        "title": "Liste",
+        "list-title" : "Einfacher Titel",
+        "header-title" : "Eigener Header"
+      }
     }
   }
 }

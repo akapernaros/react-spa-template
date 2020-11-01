@@ -86,12 +86,10 @@ class WExpandableSection extends React.Component {
     }
 
     handleExpandChange(expanded) {
-        console.log('change ' + expanded);
         this.setState({ expanded: expanded });
     }
 
     render() {
-        console.log('Tab ' + this.state.expanded);
         let body;
         if (this.state.expanded === true) {
             body = this.props.children;
