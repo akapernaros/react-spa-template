@@ -14,16 +14,16 @@ class Config {
     }
 }
 
-export const configService = Config.newInstance();
+export const ConfigService = Config.newInstance();
 
 export function withConfiguration(WrappedComponent) {
 
     return class extends React.Component {
         constructor(props) {
             super(props);
-            this.configurationProvider = configService;
+            this.configurationProvider = ConfigService;
             this.state = {
-                config: configService.getConfiguration()
+                config: ConfigService.getConfiguration()
             };
         }
 

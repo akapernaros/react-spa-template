@@ -1,11 +1,13 @@
+import React from "react";
 import axios from 'axios';
+import { ConfigService } from './config';
 
 class AxiosApi {
     constructor() {
         console.log("Initializing Backend API");
 
         this.axios = axios.create({
-            baseURL: 'https://gorest.co.in/public-api',
+            baseURL: ConfigService.getConfiguration().baseUrl,
             timeout: 10000,
             headers: {'X-SPA-Header': 'react-spa'}
         });
@@ -23,3 +25,17 @@ class AxiosApi {
 }
 
 export const Api = AxiosApi.newInstance();
+
+export function withRestApi(WrappedComponent) {
+
+    return class extends React.Component {
+        constructor(props) {
+            super(props);
+            this.service = Api;
+        }
+
+        render() {
+            return <WrappedComponent api={this.service} {...this.props} />
+        }
+    }
+}
