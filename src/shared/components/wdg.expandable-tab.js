@@ -112,7 +112,7 @@ WExpandableSection.defaultProps = {
 }
 
 WExpandableSection.propTypes = {
-    children: PropTypes.element,
+    children: PropTypes.any.isRequired,
     title: PropTypes.string.isRequired,
     size: PropTypes.number,
     expanded: PropTypes.bool,

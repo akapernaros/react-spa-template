@@ -6,6 +6,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.7.0] - 2020-11-??
+### Added
+- First integration of Axios
+- Example loading Data using Axios
+### Changed
+- Fixed type proplems of children in ExpandableSection
+
 ## [0.6.5] - 2020-11-01
 ### Added
 - Kitchen sink page and sub components

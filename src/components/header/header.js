@@ -1,6 +1,7 @@
 import React from 'react';
 import {withTranslation} from "react-i18next";
 import { Widget } from "../../shared/components";
+import { withConfiguration } from "../../shared/services/config";
 
 
 
@@ -27,6 +28,9 @@ class Header extends React.Component {
             </Widget.NavbarItem>
 
             <div className="col-lg-7">
+                <Widget.NavbarItem type={Widget.NAVBAR_ITEM.TITLE} >
+                    { this.props.config.baseUrl }
+                </Widget.NavbarItem>
             </div>
 
             <div className="col-lg-1">
@@ -44,4 +48,5 @@ class Header extends React.Component {
     }
 }
 
-export default withTranslation()(Header);
+const header = withTranslation()(Header);
+export default withConfiguration(header);

@@ -48,6 +48,12 @@
         "title": "List",
         "list-title" : "Simple Title",
         "header-title" : "Own Header"
+      },
+      "backend": {
+        "title": "API Call",
+        "text": "<- Loads Data from Endpoint https://gorest.co.in/public-api/users",
+        "button": "Trigger call",
+        "result-title": "Results"
       }
     }
   }

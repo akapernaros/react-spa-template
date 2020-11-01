@@ -51,6 +51,12 @@
         "title": "Liste",
         "list-title" : "Einfacher Titel",
         "header-title" : "Eigener Header"
+      },
+      "backend": {
+        "title": "API Aufruf",
+        "text": "<- Lädt die Daten aus https://gorest.co.in/public-api/users",
+        "button": "Daten laden",
+        "result-title": "Ergebnisse"
       }
     }
   }

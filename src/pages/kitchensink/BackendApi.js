@@ -1,8 +1,9 @@
 import React from "react";
-import Api from "../../shared/services/api";
+import { withTranslation, Trans } from "react-i18next";
+import { Api } from "../../shared/services/api";
 import { Widget } from "../../shared/components";
 
-export class BackendApi extends React.Component {
+class BackendApi extends React.Component {
 
     constructor(props) {
         super(props);
@@ -13,10 +14,9 @@ export class BackendApi extends React.Component {
     }
 
     loadUsers() {
-        this.api.get("/users" , (res) => {
+        this.api.get("/users",(res) => {
             console.log(res.data);
-            this.setState({ users: res.data });
-        });
+            this.setState({ users: res.data })});
     }
 
     displayUsers() {
@@ -29,12 +29,22 @@ export class BackendApi extends React.Component {
 
     render() {
         return <div className="row py-4">
-                <div className="col">
-                    <Widget.ExpandableSection title={ "Test" } expanded={ false }>
-                        <div className="row">
-                            <div className="col">
-                                <Widget.Button onClick={ this.loadUsers }>Test 2</Widget.Button>
-                                { this.displayUsers() }
+                <div className="col-lg">
+                    <Widget.ExpandableSection title={ this.props.t('app.kitchensink.backend.title') } expanded={ false }>
+                        <div className="row py-2">
+                            <div className="col-lg-2">
+                                <Widget.Button size= { Widget.SIZE.S } onClick={ this.loadUsers }><Trans>app.kitchensink.backend.button</Trans> </Widget.Button>
+                            </div>
+                            <div className="col-lg-8 pt-1">
+                                <span className="text-dark">{ this.props.t('app.kitchensink.backend.text') }</span>
+                            </div>
+                        </div>
+                        <div className="row py-2">
+                            <div className="col-lg">
+                                <Widget.List title={ this.props.t('app.kitchensink.backend.result-title')}
+                                             content={ this.state.users }
+                                             keyAttribute={ "id" }
+                                             render={ element => (<UserContent user={ element }/>)} />
                             </div>
                         </div>
                     </Widget.ExpandableSection>
@@ -42,3 +52,14 @@ export class BackendApi extends React.Component {
         </div>
     }
 }
+
+class UserContent extends React.Component {
+
+    render() {
+        return <div className="col-lg">
+            { this.props.user.name }
+        </div>
+    }
+}
+
+export default withTranslation()(BackendApi);

@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-class Api {
+class AxiosApi {
     constructor() {
         console.log("Initializing Backend API");
 
@@ -12,14 +12,14 @@ class Api {
     }
 
     static newInstance = () => {
-        return new Api();
+        return new AxiosApi();
     }
 
     call = () => this.axios;
 
-    async get(url, callback) {
-        await this.axios.get(url).then( res => callback(res.data));
+    get(url, callback) {
+        this.axios.get(url).then( res => callback(res.data));
     }
 }
 
-export default Api.newInstance();
+export const Api = AxiosApi.newInstance();

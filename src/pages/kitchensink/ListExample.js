@@ -32,17 +32,17 @@ class ListExample extends React.Component {
 
     render() {
         return <div className="row py-4">
-                <div className="col pt-4">
+                <div className="col-lg pt-4">
                     <Widget.ExpandableSection title={ this.props.t('app.kitchensink.list.title') } expanded={false}>
-                        <div className="row">
-                            <div className="col">
+                        <div className="row pt-2">
+                            <div className="col-lg">
                                 <Widget.List
                                     content={ this.state.data }
                                     keyAttribute={ "id" }
                                     title={ this.props.t('app.kitchensink.list.list-title')}
                                     render={ element => (<ListContent entry={ element }/>)} />
                             </div>
-                            <div className="col">
+                            <div className="col-lg">
                                 <Widget.List
                                     content={ this.state.data }
                                     headerContent={ this.getHeaderContent }
