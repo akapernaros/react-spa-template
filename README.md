@@ -41,6 +41,9 @@ Import all components by `import { Widget } from "./shared/components";` or the 
 - __ExpandableSection__ is a section that expands by clicking on the top left button, showing or hiding the contents in the sections body. 
 The expansion state can be set using `expanded={ true }`. The component manages the state change using the toggle button internally. 
 
+- __List__ is a component that iterates through an array of elements and creates instances of the specified "content-component". Each
+element in the array represents an own list-element with a specified key.
+
 ## i18next
 Project uses i18next(https://www.i18next.com/), and the corresponding React implementation (https://react.i18next.com/). 
 i18n in react is really tortuous. However, after evaluating other frameworks i18next appeared to be the best one.  

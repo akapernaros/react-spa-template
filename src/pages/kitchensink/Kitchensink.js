@@ -5,6 +5,7 @@ import ButtonExample from "./ButtonExample";
 import ExpandableSectionExample from "./ExpandableSectionExample";
 import TwoWayDatabingExample from "./TwoWayDatabingExample";
 import ListExample from "./ListExample";
+import { BackendApi } from "./BackendApi";
 
 class Kitchensink extends React.Component {
 
@@ -20,6 +21,7 @@ class Kitchensink extends React.Component {
             <ExpandableSectionExample handler={ this.test }/>
             <TwoWayDatabingExample/>
             <ListExample/>
+            <BackendApi/>
         </div>
     }
 }
