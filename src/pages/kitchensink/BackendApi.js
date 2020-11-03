@@ -1,6 +1,6 @@
 import React from "react";
 import { withTranslation, Trans } from "react-i18next";
-import { withRestApi } from "../../shared/services/api";
+import { withApiService } from "../../shared/services/api";
 import { Widget } from "../../shared/components";
 
 class BackendApi extends React.Component {
@@ -13,7 +13,6 @@ class BackendApi extends React.Component {
     }
 
     loadUsers() {
-
         this.props.api.get("/users",(res) => {
             console.log(res.data);
             this.setState({ users: res.data })});
@@ -62,5 +61,4 @@ class UserContent extends React.Component {
     }
 }
 
-export const temp = withTranslation()(BackendApi);
-export default withRestApi(temp);
+export default withApiService(withTranslation()(BackendApi));

@@ -10,8 +10,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - First integration of Axios
 - Example loading Data using Axios
+- Simple configuration serivce
+- Initializing services and nested WrappedComponents
+
 ### Changed
 - Fixed type proplems of children in ExpandableSection
+- Root app has three content parts: Waiting for init, init success => main page, init error => error message
 
 ## [0.6.5] - 2020-11-01
 ### Added

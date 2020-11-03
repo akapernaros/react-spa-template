@@ -2,9 +2,7 @@ import {Widget} from "../../shared/components";
 import {Trans, useTranslation } from "react-i18next";
 import React from "react";
 
-
 export default function ButtonExample(props) {
-
     const { t } = useTranslation();
 
     return <div className="row py-4">

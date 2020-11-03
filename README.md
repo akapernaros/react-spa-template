@@ -5,7 +5,9 @@ without "starting from scratch". It is my first react experience, so I just trie
 This template integrates the following libraries/aspects:
 * i18n using `react-i18next`
 * Style/css, layout using `bootstrap`
-* components using `react-bootstrap` (wrapped in shared components, see kitchen-sink)  
+* components using `react-bootstrap` (wrapped in shared components, see kitchen-sink)
+* axios for implementing a connection to REST-APIs
+* Loading a configuration from /public (dynamic config)
 * ... and more to come.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -56,7 +58,7 @@ The bootstrap-components `react-bootstrap` are wrapped as widgets to decouple th
 widget component also define a choice of "common styling" and functionality.
 
 ## Next to come
-* Support for Backend communication (Axios?)
+* More Backend communication with Axios (how handle request in a common way and hide axios specific details)
 * Security using OpenID Connect (Authentication)
 * Authorisation, securing functions
 * Add more widgets 

@@ -1,21 +1,33 @@
 import React from "react";
 
-class Config {
+/**
+ * Loads and returns static configuration.
+ *
+ * @type {{init(): Promise<void>, configuration: {}}}
+ */
+export const ConfigService = {
 
-    static newInstance() {
-        console.log("Initialized Config.")
-        return new Config();
-    }
 
-    getConfiguration() {
-        return {
-            baseUrl: 'https://gorest.co.in/public-api'
-        }
-    }
+    configuration: {},
+
+
+    async init() {
+        console.log("Initializing Config.")
+        this.configuration = await fetch('data/configuration.json')
+            .then(value => value.json())
+            .then(out => {
+                console.log("Config loaded." + JSON.stringify(out));
+                return out;
+            });
+    },
 }
 
-export const ConfigService = Config.newInstance();
-
+/**
+ * Returns the (High order) component offering access to app configuration (this.props.config).
+ *
+ * @param WrappedComponent - madatory.
+ * @returns Wrapper class.
+ */
 export function withConfiguration(WrappedComponent) {
 
     return class extends React.Component {
@@ -23,13 +35,11 @@ export function withConfiguration(WrappedComponent) {
             super(props);
             this.configurationProvider = ConfigService;
             this.state = {
-                config: ConfigService.getConfiguration()
+                config: ConfigService.configuration
             };
         }
 
         render() {
-            // ... and renders the wrapped component with the fresh data!
-            // Notice that we pass through any additional props
             return <WrappedComponent config={this.state.config} {...this.props} />;
         }
     };
