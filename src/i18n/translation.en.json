@@ -4,7 +4,9 @@
     "actions": {
       "save": "Save",
       "cancel": "Cancel",
-      "continue": "Continue"
+      "continue": "Continue",
+      "close": "Close",
+      "ok": "Ok"
     },
     "message": {
       "dropdown": "Please select ..."
@@ -54,6 +56,11 @@
         "text": "<- Loads Data from Endpoint https://gorest.co.in/public-api/users",
         "button": "Trigger call",
         "result-title": "Results"
+      },
+      "modal": {
+        "title": "Message",
+        "message": "This is a message ...",
+        "returned": "Modal returned:"
       }
     }
   }

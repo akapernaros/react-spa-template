@@ -14,7 +14,7 @@ class WListItem extends React.Component {
 
 export class WList extends React.Component {
 
-    getItems = () => {
+    getItems() {
         return this.props.content.map((entry) => {
             return <WListItem key={ entry[this.props.keyAttribute] } itemStyle={ this.props.itemStyle }> { this.props.render(entry) }</WListItem>
         });
@@ -22,7 +22,6 @@ export class WList extends React.Component {
 
     getHeader() {
         if (this.props.title) {
-            console.log("Title");
             return <div className="nav bg-dark">
                     <div className="nav-item">
                         <h4 className="text-white p-2">{this.props.title}</h4>
@@ -30,7 +29,6 @@ export class WList extends React.Component {
                 </div>
         }
         if (this.props.headerContent instanceof Function) {
-            console.log("Header");
             return this.props.headerContent.call();
         }
         return "";

@@ -13,10 +13,6 @@ class ListExample extends React.Component {
         this.getHeaderContent = this.getHeaderContent.bind(this);
     }
 
-    sayHello() {
-        alert("Action.");
-    }
-
     getHeaderContent() {
         return <div className="nav bg-primary p-2">
             <div className="nav-item col">
@@ -24,7 +20,7 @@ class ListExample extends React.Component {
             </div>
             <div className="justify-content-end">
                 <div className="nav-item col">
-                    <Widget.Button size={ Widget.SIZE.S } onClick={ this.sayHello } type={ Widget.BUTTON_TYPE.SUBMIT } ><PlusCircle size="20"  /></Widget.Button>
+                    <Widget.Button size={ Widget.SIZE.S } onClick={ this.props.handler } type={ Widget.BUTTON_TYPE.SUBMIT } ><PlusCircle size="20"  /></Widget.Button>
                 </div>
             </div>
         </div>

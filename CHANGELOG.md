@@ -6,7 +6,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-## [0.7.0] - 2020-11-??
+## [0.7.2] - 2020-11-08
+### Added
+- Support for modal dialogs
+- Added Modal demonstration in kitchen sink in the button section 
+
+### Changed
+- Replaced all alerts by the new modal-dialog 
+
+### Removed
+- Some log outputs.
+
+
+## [0.7.0] - 2020-11-02
 ### Added
 - First integration of Axios
 - Example loading Data using Axios

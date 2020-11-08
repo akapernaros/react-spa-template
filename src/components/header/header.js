@@ -23,12 +23,11 @@ class Header extends React.Component {
 
             <Widget.NavbarItem type={Widget.NAVBAR_ITEM.TITLE} >
                 <img src="/logo192.png" width="13%" alt="logo"/>
-                {this.props.t('common.title')}
+                <span className="pl-3">{this.props.t('common.title')}</span>
             </Widget.NavbarItem>
 
             <div className="col-lg-7">
-                <Widget.NavbarItem type={Widget.NAVBAR_ITEM.TITLE} >
-                </Widget.NavbarItem>
+
             </div>
 
             <div className="col-lg-1">

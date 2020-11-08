@@ -4,7 +4,9 @@
     "actions": {
       "save": "Speichern",
       "cancel": "Abbrechen",
-      "continue": "Weiter"
+      "continue": "Weiter",
+      "close": "Schliessen",
+      "ok": "Ok"
     },
     "message": {
       "dropdown": "Bitte auswählen ..."
@@ -57,6 +59,12 @@
         "text": "<- Lädt die Daten aus https://gorest.co.in/public-api/users",
         "button": "Daten laden",
         "result-title": "Ergebnisse"
+      },
+      "modal": {
+        "title": "Nachricht",
+        "message": "Das ist eine Nachricht ...",
+        "returned": "Popup gab zurück:",
+        "content": "Dieses Popup enthält individuellen Inhalt ..."
       }
     }
   }
