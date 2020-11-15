@@ -14,11 +14,7 @@ export class WDropdown extends React.Component {
             emptyElement = this.getEmptyOption(this.props.emptyText)
         }
 
-        let onSel;
-        if (this.props.onSelect) {
-            onSel = this.props.onSelect;
-        }
-        return <select className="custom-select" onChange={ onSel }>
+        return <select id={ this.props.id } className="custom-select" onChange={ this.props.onSelect } value={ this.props.value }>
             { emptyElement }
             { this.props.children }
         </select>
@@ -28,6 +24,7 @@ export class WDropdown extends React.Component {
 WDropdown.propTypes = {
     children: PropTypes.node.isRequired,
     emptyText: PropTypes.string,
-    onSelect: PropTypes.func
-
+    id: PropTypes.string,
+    onSelect: PropTypes.func,
+    value: PropTypes.any
 }

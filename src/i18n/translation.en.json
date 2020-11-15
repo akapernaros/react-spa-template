@@ -61,6 +61,21 @@
         "title": "Message",
         "message": "This is a message ...",
         "returned": "Modal returned:"
+      },
+      "error": {
+        "title": "Display errors",
+        "select": {
+          "FATAL" : "Fatal",
+          "ERROR" : "Severe",
+          "WARNING": "Warning",
+          "INFO": "Information"
+        },
+        "labels": {
+          "severity": "Severity",
+          "code": "Code",
+          "message": "Message",
+          "fire": "Fire"
+        }
       }
     }
   }

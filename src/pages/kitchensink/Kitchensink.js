@@ -7,6 +7,7 @@ import ExpandableSectionExample from "./ExpandableSectionExample";
 import TwoWayDatabingExample from "./TwoWayDatabingExample";
 import ListExample from "./ListExample";
 import BackendApi from "./BackendApi";
+import ErrorSection from "./ErrorSection";
 
 class Kitchensink extends React.Component {
     constructor(props) {
@@ -29,6 +30,7 @@ class Kitchensink extends React.Component {
             <h1> { this.props.t('app.kitchensink.title') } </h1>
             <ButtonExample handler={ this.handleShow }/>
             <DropDownExample/>
+            <ErrorSection/>
             <ExpandableSectionExample handler={ this.handleShow }/>
             <TwoWayDatabingExample/>
             <ListExample handler={ this.handleShow }/>

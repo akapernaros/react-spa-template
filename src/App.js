@@ -5,6 +5,7 @@ import { withTranslation } from "react-i18next";
 import Header from './components/header/header'
 import Kitchensink from "./pages/kitchensink/Kitchensink";
 import {initialize} from "./shared/services";
+import {ErrorBoundary} from "./shared/components/ErrorComponent";
 
 
 export class App extends React.Component {
@@ -40,7 +41,9 @@ export class App extends React.Component {
         return  <div>
                     <Header/>
                     <div className="App container-lg">
-                        <Kitchensink/>
+                        <ErrorBoundary>
+                            <Kitchensink/>
+                        </ErrorBoundary>
                     </div>
                 </div>;
     }
