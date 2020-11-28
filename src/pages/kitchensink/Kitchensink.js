@@ -1,13 +1,14 @@
 import React from "react";
 import {Widget} from "../../shared/components";
 import DropDownExample from "./DropDownExample";
-import {withTranslation} from "react-i18next";
 import ButtonExample from "./ButtonExample";
 import ExpandableSectionExample from "./ExpandableSectionExample";
 import TwoWayDatabingExample from "./TwoWayDatabingExample";
 import ListExample from "./ListExample";
 import BackendApi from "./BackendApi";
 import ErrorSection from "./ErrorSection";
+import {withAllServices} from "../../shared/services";
+import {EventListener} from "../../shared/services/eventbus";
 
 class Kitchensink extends React.Component {
     constructor(props) {
@@ -15,10 +16,21 @@ class Kitchensink extends React.Component {
         this.state = {
             show: false
         }
+        this.listener = new EventListener("button.test", () => console.log("Juhu :-D"));
+    }
+
+    componentDidMount() {
+        console.log("Register my kitchen listener");
+        this.props.eventBus.subscribe(this.listener);
+    }
+    componentWillUnmount() {
+        console.log("DeRegister my kitchen listener");
+        this.props.eventBus.unsubscribe(this.listener);
     }
 
     handleShow = () => {
         this.setState({ show: true });
+        this.props.eventBus.fire("button");
     }
 
     handleClose = () => {
@@ -40,4 +52,4 @@ class Kitchensink extends React.Component {
     }
 }
 
-export default withTranslation()(Kitchensink);
+export default withAllServices(Kitchensink);

@@ -1,10 +1,11 @@
 import {Widget} from "../../shared/components";
 import {Trans, useTranslation } from "react-i18next";
 import React, {useState} from "react";
-import {string} from "prop-types";
+import {EventBus} from "../../shared/services/eventbus";
 
 export default function ButtonExample(props) {
     const { t } = useTranslation();
+    const eventBus = EventBus.useEventBus();
     const [ show, setShow ] = useState(false);
     const [ message, setMessage ] = useState();
 
@@ -14,11 +15,11 @@ export default function ButtonExample(props) {
 
     const testMessage = () => {
         setShow(true);
+        eventBus.fire("!button.test");
     }
     const handleClose = (value) => {
-        if (value && value instanceof string) {
-            setMessage(value)
-        }
+        console.log("Return of modal " + value);
+        setMessage(value)
         setShow(false);
     }
 
@@ -27,7 +28,7 @@ export default function ButtonExample(props) {
                       show={ show }
                       headerClose={ false }
                       footerButtons={ buttons }
-                      closeFunction={ handleClose }>
+                      closeFunction={ handleClose.bind(this) }>
             <div className="row">
                 <span className="p-3"><Trans>app.kitchensink.modal.content</Trans></span>
             </div>

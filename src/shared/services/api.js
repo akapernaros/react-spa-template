@@ -62,6 +62,10 @@ export const ApiService = {
     }
 }
 
+export function useApiService() {
+    return ApiService;
+}
+
 /**
  * High order component. Usage for class components. Offer access to api service (this.props.api).
  *

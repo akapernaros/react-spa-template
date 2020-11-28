@@ -31,14 +31,18 @@ export class WModal extends React.Component {
         });
     }
 
-    closeModal(value) {
+    customClose(value) {
+        if (this.props.closeFunction) {
+            this.props.closeFunction(value);
+        }
+        this.closeModal();
+    }
+
+    closeModal() {
         this.setState({
             modalShow: '',
             display: 'none'
         });
-        if (this.props.closeFunction) {
-            this.props.closeFunction(value);
-        }
     }
 
     componentDidMount() {
@@ -47,7 +51,7 @@ export class WModal extends React.Component {
 
     componentDidUpdate(prevProps) {
         if (prevProps.show !== this.props.show) {
-            this.props.show ? this.openModal() : this.closeModal();
+            this.props.show ? this.openModal() : this.closeModal("test");
         }
     }
 
@@ -56,7 +60,7 @@ export class WModal extends React.Component {
             let buttons =  [];
             let idx = 0;
             this.props.footerButtons.forEach(but => {
-                buttons.push(<button key={idx} type="button" className="btn btn-secondary" onClick={ but.value ? this.closeModal.bind(this, but.value) : this.closeModal }>
+                buttons.push(<button key={idx} type="button" className="btn btn-secondary" onClick={ but.value ? this.customClose.bind(this, but.value) : this.closeModal }>
                     { but.title }
                 </button>);
                 idx++;

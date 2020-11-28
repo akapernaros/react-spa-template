@@ -1,7 +1,8 @@
 import {Widget} from "../../shared/components";
 import { Trans, withTranslation } from "react-i18next";
 import React from "react";
-import {SEVERITY, Throwable, withError} from "../../shared/components/ErrorComponent";
+import { SEVERITY, Message }  from "../../shared/core/errors";
+import {EventBus} from "../../shared/services/eventbus";
 
 export class ErrorSection extends React.Component {
     constructor(props) {
@@ -18,7 +19,7 @@ export class ErrorSection extends React.Component {
     }
 
     handler() {
-        this.props.throwError(new Throwable(this.state.code, this.state.message, this.state.severity));
+        this.props.eventBus.sendMessage(new Message(this.state.code, this.state.message, this.state.severity));
     }
 
     handleChange(e) {
@@ -47,7 +48,7 @@ export class ErrorSection extends React.Component {
                         <div className="row pt-2">
                             <div className="input-group input-group-sm col-lg-3">
                                 <label className="col-form-label-sm px-2"><Trans>app.kitchensink.error.labels.severity</Trans></label>
-                                <Widget.Dropdown id="test" emptyText={this.props.t('common.message.dropdown')} value={ this.state.severity } onSelect={ this.handleChange }>
+                                <Widget.Dropdown id="severity" emptyText={this.props.t('common.message.dropdown')} value={ this.state.severity } onSelect={ this.handleChange }>
                                     { this.severityValues() }
                                 </Widget.Dropdown>
                             </div>
@@ -61,7 +62,7 @@ export class ErrorSection extends React.Component {
                                 <input id={"message"} type="text" className="form-control" value={ this.state.message } onChange={ this.handleChange }/>
                             </div>
                             <div className="col-lg-2">
-                                <Widget.Button id={"severity"} type={Widget.BUTTON_TYPE.ALERT} onClick={ this.handler }><Trans>app.kitchensink.error.labels.fire</Trans></Widget.Button>
+                                <Widget.Button type={Widget.BUTTON_TYPE.ALERT} onClick={ this.handler }><Trans>app.kitchensink.error.labels.fire</Trans></Widget.Button>
                             </div>
                         </div>
                     </Widget.ExpandableTabBody>
@@ -71,4 +72,4 @@ export class ErrorSection extends React.Component {
     }
 }
 
-export default withTranslation()(withError(ErrorSection));
+export default withTranslation()(EventBus.withEventBus(ErrorSection));

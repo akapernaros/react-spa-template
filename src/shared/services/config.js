@@ -13,11 +13,11 @@ export const ConfigService = {
 
     async init() {
         console.log("Initializing Config.")
-        this.configuration = await fetch('data/configuration.json')
+        return fetch('data/configuration.json')
             .then(value => value.json())
             .then(out => {
                 console.log("Config loaded." + JSON.stringify(out));
-                return out;
+                this.configuration = out;
             });
     },
 }

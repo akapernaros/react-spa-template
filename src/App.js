@@ -2,10 +2,11 @@ import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './App.css';
 import { withTranslation } from "react-i18next";
-import Header from './components/header/header'
+import Header from './components/header/Header'
 import Kitchensink from "./pages/kitchensink/Kitchensink";
 import {initialize} from "./shared/services";
-import {ErrorBoundary} from "./shared/components/ErrorComponent";
+import {ErrorBoundary, FatalError} from "./AppError";
+import DisplayMessage from "./components/DisplayMessage";
 
 
 export class App extends React.Component {
@@ -28,8 +29,8 @@ export class App extends React.Component {
      *
      * @returns {*}
      */
-    errorContent() {
-        return <div>Initializing failed. Application could not be started.</div>
+    errorContent(error) {
+        return <FatalError error={error}/>
     }
 
     /**
@@ -40,6 +41,7 @@ export class App extends React.Component {
     rootContent() {
         return  <div>
                     <Header/>
+                    <DisplayMessage/>
                     <div className="App container-lg">
                         <ErrorBoundary>
                             <Kitchensink/>
@@ -53,7 +55,7 @@ export class App extends React.Component {
             this.setState({ render: this.rootContent() });
         }).catch((e) => {
             console.log(e);
-            this.setState({ render: this.errorContent() });
+            this.setState({ render: this.errorContent(e) });
         });
 
     }
