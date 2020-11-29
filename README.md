@@ -57,6 +57,9 @@ Like most apps and frameworks this one does not start from scratch. It uses `boo
 The bootstrap-components `react-bootstrap` are wrapped as widgets to decouple them from the app-components. The shared 
 widget component also define a choice of "common styling" and functionality.
 
+## Messageing and Errorhandling
+
+
 ## Next to come
 * More Backend communication with Axios (how handle request in a common way and hide axios specific details)
 * Security using OpenID Connect (Authentication)

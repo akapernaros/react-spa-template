@@ -1,6 +1,15 @@
 import React from "react";
 import PropTypes from 'prop-types';
 import { Trans } from "react-i18next";
+import {APPEARANCE} from "./constants";
+
+function getHeaderStyle(apperance) {
+    let result = 'bg-light';
+    if (apperance && apperance === APPEARANCE.ALERT) {
+        result = 'bg-danger'
+    }
+    return result;
+}
 
 /**
  * Displays a popup with a simple message or a custom body. Returns 'CLOSE' if closed by default button or 'XCLOSE' if closed by header-button.
@@ -81,7 +90,7 @@ export class WModal extends React.Component {
                 style={{ display: this.state.display }} >
                 <div className="modal-dialog" role="document">
                     <div className="modal-content">
-                        <div className="modal-header">
+                        <div className={ `modal-header ${getHeaderStyle(this.props.appearance)}` } >
                             <h3>{ this.props.title }</h3>
                             { this.props.headerClose ? <button type="button"
                                 className="close"
@@ -90,7 +99,7 @@ export class WModal extends React.Component {
                                 <span aria-hidden="true">&times;</span>
                             </button> : ''}
                         </div>
-                        <div className="modal-body">
+                        <div className="modal-body bg-danger">
                             { this.props.message }
                             { this.props.children }
                         </div>
@@ -105,13 +114,15 @@ export class WModal extends React.Component {
 }
 
 WModal.defaultProps = {
-    headerClose: true
+    headerClose: true,
+    appearance: APPEARANCE.LIGHT
 }
 
 WModal.propTypes = {
     show: PropTypes.bool.isRequired,
     title: PropTypes.string.isRequired,
     headerClose: PropTypes.bool.isRequired,
+    appearance: PropTypes.string,
     footerButtons: PropTypes.array,
     message: PropTypes.string,
     children: PropTypes.any,

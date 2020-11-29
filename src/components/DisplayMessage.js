@@ -2,12 +2,33 @@ import React from 'react';
 import { MessageHandler, EventBus } from "../shared/services/eventbus";
 import {SEVERITY} from "../shared/core/errors";
 import {WModal} from "../shared/components/wdg.modal";
+import {useTranslation, withTranslation} from "react-i18next";
+import {APPEARANCE} from "../shared/components/constants";
 
 const ALERT = {
     1: 'alert-danger',
     2: 'alert-danger',
     3: 'alert-warning',
     4: 'alert-info'
+}
+
+function getTitleKey(severity) {
+    return `common.messages.title.${severity}`;
+}
+
+function TranslatedTitle(props) {
+    const { t } = useTranslation();
+    return <div className="row"><h4>{ t(getTitleKey(props.error.severity))}</h4></div>
+}
+
+function TranslatedMessage(props) {
+    const { t } = useTranslation();
+    let key = `common.messages.code.${props.error.code}`;
+    let message = t(key);
+    if ( message === key) {
+        message = props.error.message;
+    }
+    return <div className={'row'}>[{props.error.code}] - {message}</div>
 }
 
 class DisplayMessage extends React.Component {
@@ -71,24 +92,34 @@ class DisplayMessage extends React.Component {
     render() {
         if (this.state.showMessage) {
             return <div className={`alert ${this.level()}`}>
-                { this.state.message.code } - { this.state.message.code }
-                <button type="button"
-                        className="close"
-                        aria-label="Close"
-                        onClick={ this.resetState } >
-                    <span aria-hidden="true">&times;</span>
-                </button>
+                <div className="row">
+                    <div className="col-lg">
+                        <TranslatedTitle error={this.state.message}/>
+                        <TranslatedMessage error={this.state.message}/>
+                    </div>
+                    <div className="col-lg-1">
+                        <button type="button"
+                                className="close"
+                                aria-label="Close"
+                                onClick={ this.resetState } >
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                </div>
             </div>
         } else if (this.state.showFatal) {
-            return <WModal show={ this.state.showFatal } title={"Critical Error"} closeFunction={ this.resetFatal }>
-                { this.state.message.code } - { this.state.message.code }
+            return <WModal show={ this.state.showFatal }
+                           appearance={ APPEARANCE.ALERT }
+                           title={this.props.t(getTitleKey(this.state.message.severity))}
+                           closeFunction={ this.resetFatal }>
+                <TranslatedMessage error={this.state.message}/>
             </WModal>
         }
         return '';
     }
 }
 
-export default EventBus.withEventBus(DisplayMessage);
+export default withTranslation()(EventBus.withEventBus(DisplayMessage));
 
 
 

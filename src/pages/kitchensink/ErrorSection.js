@@ -48,7 +48,7 @@ export class ErrorSection extends React.Component {
                         <div className="row pt-2">
                             <div className="input-group input-group-sm col-lg-3">
                                 <label className="col-form-label-sm px-2"><Trans>app.kitchensink.error.labels.severity</Trans></label>
-                                <Widget.Dropdown id="severity" emptyText={this.props.t('common.message.dropdown')} value={ this.state.severity } onSelect={ this.handleChange }>
+                                <Widget.Dropdown id="severity" emptyText={this.props.t('common.dropdown.select')} value={ this.state.severity } onSelect={ this.handleChange }>
                                     { this.severityValues() }
                                 </Widget.Dropdown>
                             </div>

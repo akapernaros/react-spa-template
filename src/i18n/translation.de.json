@@ -8,8 +8,8 @@
       "close": "Schliessen",
       "ok": "Ok"
     },
-    "message": {
-      "dropdown": "Bitte auswählen ..."
+    "dropdown": {
+      "select": "Bitte auswählen ..."
     },
     "labels" : {
       "language" : "Sprache"
@@ -17,6 +17,18 @@
     "languages": {
       "de": "Deutsch",
       "en": "Englisch"
+    },
+    "messages": {
+      "title": {
+        "1": "Schwerwiegender Fehler",
+        "2": "Fehler",
+        "3": "Warnung",
+        "4": "Information"
+      },
+      "code": {
+        "UNDEF": "Das ist ein Programmierfehler. Es scheint, dass die Applikation in eine unerwartete Situation gekommen ist. Mehr Informationen könnten im Log stehen.",
+        "ERR-001": "Nicht wundern, dass der eingegebene Nachrichtentext hier nicht steht. Dies ist ein internationalisierbarer Text der aus dem Fehlercode abgeleitet wurde. Ein anderer Code führt zu dem eingegeben Text."
+      }
     }
   },
   "app": {

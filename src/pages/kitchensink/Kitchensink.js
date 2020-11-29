@@ -10,13 +10,15 @@ import ErrorSection from "./ErrorSection";
 import {withAllServices} from "../../shared/services";
 import {EventListener} from "../../shared/services/eventbus";
 
+const BUTTON_EVENT = 'button.test';
+
 class Kitchensink extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             show: false
         }
-        this.listener = new EventListener("button.test", () => console.log("Juhu :-D"));
+        this.listener = new EventListener(BUTTON_EVENT, () => console.log("Button send custom event."));
     }
 
     componentDidMount() {

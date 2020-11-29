@@ -5,6 +5,18 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+
+## [0.8.1] - 2020-11-29
+### Added
+- Translations for new message handling
+- Added "appearance" property to modal
+- Documentation to the fresh
+- README documentation
+### Changed
+- Hiding direct access to services
+### Removed
+- Cleaned up obsolete "console.log" entries.
+
 ## [0.8.0] - 2020-11-28
 ### Added
 - EventBus for sending messages and firing events

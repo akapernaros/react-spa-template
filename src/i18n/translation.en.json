@@ -8,8 +8,8 @@
       "close": "Close",
       "ok": "Ok"
     },
-    "message": {
-      "dropdown": "Please select ..."
+    "dropdown": {
+      "select": "Please select ..."
     },
     "labels" : {
       "language" : "Language"
@@ -17,6 +17,18 @@
     "languages": {
       "de": "German",
       "en": "English"
+    },
+    "messages": {
+      "title": {
+        "1": "Fatal",
+        "2": "Severe",
+        "3": "Warning",
+        "4": "Information"
+      },
+      "code": {
+        "UNDEF": "This is a programming error. It seems that the application ran into an unexpected condition. See the logs for more information.",
+        "ERR-001": "This is not the text you expected? This is because the code you entered is the source for a internationalized message. Enter another code to see the entered message."
+      }
     }
   },
   "app": {

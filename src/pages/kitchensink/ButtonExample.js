@@ -3,6 +3,8 @@ import {Trans, useTranslation } from "react-i18next";
 import React, {useState} from "react";
 import {EventBus} from "../../shared/services/eventbus";
 
+const BUTTON_EVENT = 'button.test';
+
 export default function ButtonExample(props) {
     const { t } = useTranslation();
     const eventBus = EventBus.useEventBus();
@@ -15,7 +17,7 @@ export default function ButtonExample(props) {
 
     const testMessage = () => {
         setShow(true);
-        eventBus.fire("!button.test");
+        eventBus.fire("!"+BUTTON_EVENT);
     }
     const handleClose = (value) => {
         console.log("Return of modal " + value);

@@ -1,3 +1,5 @@
+import { v4 as uuidv4 } from 'uuid'
+
 export const SEVERITY = {
     FATAL: 1,
     ERROR: 2,
@@ -7,6 +9,7 @@ export const SEVERITY = {
 
 export class Message {
     constructor(code, message, severity) {
+        this.id = uuidv4();
         this.code = code;
         this.message = message;
         this.severity = severity;
