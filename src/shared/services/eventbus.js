@@ -81,6 +81,17 @@ export class MessageHandler extends EventListener {
     }
 }
 
+/**
+ * EventBus provides the possibility to subscribe simple EventListeners and MessageHandlers. Use this implementation
+ * to decouple components and establish an application wide notifications.
+ *
+ * Register handlers and listeners in your components "componentDidMount" method and remove the listeners in
+ * the method "componentWillUnmount" method in order to avoid memory leaks.
+ *
+ * Event- and message firing happens asynchronously.
+ *
+ * @type {any}
+ */
 export const EventBus = {
 
     listeners: [],

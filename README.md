@@ -31,6 +31,24 @@ It correctly bundles React in production mode and optimizes the build for the be
 The build is minified and the filenames include the hashes.<br />
 Your app is ready to be deployed!
 
+## Project Structure
+Folder structure of the project:
+
+|   |   |
+|---|---|
+| --__src__  |   |
+|   +--__components__  | Business components, the structure beneath is up to your domains needs |
+|   +--__i18n__  | I18n translation jsons |
+|   +--__shared__ | Shared technical components and services  |
+|     +---__components__| Widget components with no relation to any business-aspects |
+|     +---__core__| Models and "non-widget" component with no relation to any business-aspects |
+|     +---__services__| Services, Hooks and High-Order-Components with no relation to any business-aspects |
+|   --__App.js__| Your Page and application entry point |
+|   --__AppError.js__| Default ErrorBoundary |
+|   --__Index.js__| Application bootstrap |
+
+
+
 ## Kitchen-Sink
 As mentioned before that is my first contact with react and tried out a few things, just to see how react works and 
 experimenting how it "feels".
@@ -58,7 +76,21 @@ The bootstrap-components `react-bootstrap` are wrapped as widgets to decouple th
 widget component also define a choice of "common styling" and functionality.
 
 ## Messageing and Errorhandling
+### EventBus
+EventBus provides the possibility to subscribe simple EventListeners and MessageHandlers. Use this implementation
+to decouple components and establish an application wide notifications.
 
+Register handlers and listeners in your components "componentDidMount" method and remove the listeners in
+the method "componentWillUnmount" method in order to avoid memory leaks.
+
+Event- and message firing happens asynchronously.
+### ErrorHandling
+Fire and catch. Most errors happen asynchronously in Button-Click-Handlers or axios http requests. The "ErrorBoundary" in AppError.js 
+won't help catching these errors. This is because of the (React restrictions)[https://reactjs.org/docs/error-boundaries.html] of an error-boundary.
+
+Do not use some workarounds coursing the internet throwing errors in "setState" methods! That will reset your components state (=> possible data loss).
+
+So (throw,) catch, handle and if it is something worth displaying send a message using the EventBus and display the message in a whatever component (see DisplayMessage.js).  
 
 ## Next to come
 * More Backend communication with Axios (how handle request in a common way and hide axios specific details)

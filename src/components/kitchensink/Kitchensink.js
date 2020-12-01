@@ -9,6 +9,7 @@ import BackendApi from "./BackendApi";
 import ErrorSection from "./ErrorSection";
 import {withAllServices} from "../../shared/services";
 import {EventListener} from "../../shared/services/eventbus";
+import {APPEARANCE} from "../../shared/components/constants";
 
 const BUTTON_EVENT = 'button.test';
 
@@ -19,6 +20,8 @@ class Kitchensink extends React.Component {
             show: false
         }
         this.listener = new EventListener(BUTTON_EVENT, () => console.log("Button send custom event."));
+        this.handleClose = this.handleClose.bind(this);
+        this.handleShow = this.handleShow.bind(this);
     }
 
     componentDidMount() {
@@ -33,6 +36,7 @@ class Kitchensink extends React.Component {
     handleShow = () => {
         this.setState({ show: true });
         this.props.eventBus.fire("button");
+        console.log(this.state.show);
     }
 
     handleClose = () => {
@@ -49,7 +53,11 @@ class Kitchensink extends React.Component {
             <TwoWayDatabingExample/>
             <ListExample handler={ this.handleShow }/>
             <BackendApi/>
-            <Widget.Modal title={ this.props.t('app.kitchensink.modal.title') } closeFunction={ this.handleClose } message={ this.props.t('app.kitchensink.modal.message')} show={ this.state.show }/>
+            <Widget.Modal title={ this.props.t('app.kitchensink.modal.title') }
+                          closeFunction={ this.handleClose }
+                          appearance={ APPEARANCE.DARK }
+                          message={ this.props.t('app.kitchensink.modal.message')}
+                          show={ this.state.show }/>
         </div>
     }
 }

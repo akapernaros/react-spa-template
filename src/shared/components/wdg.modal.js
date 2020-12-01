@@ -4,9 +4,73 @@ import { Trans } from "react-i18next";
 import {APPEARANCE} from "./constants";
 
 function getHeaderStyle(apperance) {
-    let result = 'bg-light';
-    if (apperance && apperance === APPEARANCE.ALERT) {
-        result = 'bg-danger'
+    let result;
+    switch (apperance) {
+        case APPEARANCE.ALERT:
+            result = 'bg-danger';
+            break;
+        case APPEARANCE.WARN:
+            result = 'bg-warning';
+            break;
+        case APPEARANCE.SUBMIT:
+            result = 'bg-primary';
+            break;
+        case APPEARANCE.NORMAL:
+            result = 'bg-secondary';
+            break;
+        case APPEARANCE.INFO:
+            result = 'bg-info';
+            break;
+        case APPEARANCE.DARK:
+            result = 'bg-dark';
+            break;
+        default:
+            result = 'bg-light';
+    }
+    return result;
+}
+
+function getContentStyle(apperance) {
+    let result;
+    switch (apperance) {
+        case APPEARANCE.ALERT:
+            result = 'bg-secondary';
+            break;
+        case APPEARANCE.WARN:
+            result = 'bg-warning';
+            break;
+        case APPEARANCE.NORMAL:
+            result = 'bg-secondary';
+            break;
+        case APPEARANCE.INFO:
+            result = 'bg-info';
+            break;
+        case APPEARANCE.DARK:
+            result = 'bg-secondary';
+            break;
+        default:
+            result = 'bg-light';
+    }
+    return result;
+}
+
+function getTextStyle(apperance) {
+    let result;
+    switch (apperance) {
+        case APPEARANCE.ALERT:
+            result = 'text-white';
+            break;
+        case APPEARANCE.NORMAL:
+            result = 'text-white';
+            break;
+        case APPEARANCE.INFO:
+            result = 'text-white';
+            break;
+        case APPEARANCE.DARK:
+            result = 'text-white';
+            break;
+        default:
+            result = 'text-body';
     }
     return result;
 }
@@ -89,7 +153,7 @@ export class WModal extends React.Component {
                 aria-hidden="true"
                 style={{ display: this.state.display }} >
                 <div className="modal-dialog" role="document">
-                    <div className="modal-content">
+                    <div className={ `modal-content ${getContentStyle(this.props.appearance)} ${getTextStyle(this.props.appearance)}` }>
                         <div className={ `modal-header ${getHeaderStyle(this.props.appearance)}` } >
                             <h3>{ this.props.title }</h3>
                             { this.props.headerClose ? <button type="button"
@@ -99,9 +163,11 @@ export class WModal extends React.Component {
                                 <span aria-hidden="true">&times;</span>
                             </button> : ''}
                         </div>
-                        <div className="modal-body bg-danger">
-                            { this.props.message }
-                            { this.props.children }
+                        <div className="modal-body">
+                            <div className={"px-3"}>
+                                { this.props.message }
+                                { this.props.children }
+                            </div>
                         </div>
                         <div className="modal-footer">
                             { this.getFooterButtons() }

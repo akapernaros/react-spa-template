@@ -2,6 +2,7 @@ import {Widget} from "../../shared/components";
 import {Trans, useTranslation } from "react-i18next";
 import React, {useState} from "react";
 import {EventBus} from "../../shared/services/eventbus";
+import {APPEARANCE} from "../../shared/components/constants";
 
 const BUTTON_EVENT = 'button.test';
 
@@ -29,6 +30,7 @@ export default function ButtonExample(props) {
         <Widget.Modal title={t('app.kitchensink.modal.title')}
                       show={ show }
                       headerClose={ false }
+                      appearance={ APPEARANCE.LIGHT }
                       footerButtons={ buttons }
                       closeFunction={ handleClose.bind(this) }>
             <div className="row">
@@ -45,18 +47,18 @@ export default function ButtonExample(props) {
         </Widget.Modal>
 
         <div className="col">
-            <Widget.Button type={Widget.BUTTON_TYPE.INFO} onClick={props.handler}>
+            <Widget.Button type={ APPEARANCE.INFO } onClick={props.handler}>
                 <Trans>app.kitchensink.button.label</Trans>
             </Widget.Button>
         </div>
         <div className="col">
-            <Widget.Button type={Widget.BUTTON_TYPE.INFO} onClick={ testMessage }>
+            <Widget.Button type={ APPEARANCE.LIGHT } onClick={ testMessage }>
                 <Trans>app.kitchensink.modal.title</Trans>
             </Widget.Button>
             <span className="pl-2"><Trans>app.kitchensink.modal.returned</Trans> { message }</span>
         </div>
         <div className="col">
-            <Widget.Button type={Widget.BUTTON_TYPE.NORMAL} onClick={props.handler}
+            <Widget.Button type={ APPEARANCE.NORMAL } onClick={props.handler}
                            fullWidth={true} title={t('app.kitchensink.button.label-block')}>
                 <Trans>app.kitchensink.button.label-block</Trans>
             </Widget.Button>

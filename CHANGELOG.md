@@ -6,7 +6,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-## [0.8.1] - 2020-11-29
+## [0.8.1] - 2020-12-01
 ### Added
 - Translations for new message handling
 - Added "appearance" property to modal
@@ -14,6 +14,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - README documentation
 ### Changed
 - Hiding direct access to services
+- Moved kitchensink (there is no "pages" but App.js).
+
 ### Removed
 - Cleaned up obsolete "console.log" entries.
 

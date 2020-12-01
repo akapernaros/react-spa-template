@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import './App.css';
 import { withTranslation } from "react-i18next";
 import Header from './components/header/Header'
-import Kitchensink from "./pages/kitchensink/Kitchensink";
+import Kitchensink from "./components/kitchensink/Kitchensink";
 import {initialize} from "./shared/services";
 import {ErrorBoundary, FatalError} from "./AppError";
 import DisplayMessage from "./components/DisplayMessage";
