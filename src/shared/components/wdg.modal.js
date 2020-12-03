@@ -33,20 +33,8 @@ function getHeaderStyle(apperance) {
 function getContentStyle(apperance) {
     let result;
     switch (apperance) {
-        case APPEARANCE.ALERT:
-            result = 'bg-secondary';
-            break;
-        case APPEARANCE.WARN:
-            result = 'bg-warning';
-            break;
-        case APPEARANCE.NORMAL:
-            result = 'bg-secondary';
-            break;
-        case APPEARANCE.INFO:
-            result = 'bg-info';
-            break;
-        case APPEARANCE.DARK:
-            result = 'bg-secondary';
+        case APPEARANCE.LIGHT:
+            result = 'bg-transparent';
             break;
         default:
             result = 'bg-light';
@@ -93,38 +81,40 @@ export class WModal extends React.Component {
             modalShow: '',
             display: 'none'
         };
-        this.openModal = this.openModal.bind(this);
-        this.closeModal = this.closeModal.bind(this);
-    }
-
-    openModal() {
-        this.setState({
-            modalShow: 'show',
-            display: 'block'
-        });
+        this.current = false;
     }
 
     customClose(value) {
         if (this.props.closeFunction) {
             this.props.closeFunction(value);
         }
-        this.closeModal();
     }
 
-    closeModal() {
+    showModal() {
+        this.setState({
+            modalShow: 'show',
+            display: 'block'
+        });
+        this.current = true;
+    }
+
+    hideModal() {
         this.setState({
             modalShow: '',
             display: 'none'
         });
+        this.current = false;
     }
 
     componentDidMount() {
-        this.props.show ? this.openModal() : this.closeModal();
+        this.props.show ? this.showModal() : this.hideModal();
     }
 
-    componentDidUpdate(prevProps) {
-        if (prevProps.show !== this.props.show) {
-            this.props.show ? this.openModal() : this.closeModal("test");
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        if (this.current === false && this.props.show === true) {
+            this.showModal();
+        } else if (this.current === true && this.props.show === false) {
+            this.hideModal();
         }
     }
 
@@ -133,14 +123,14 @@ export class WModal extends React.Component {
             let buttons =  [];
             let idx = 0;
             this.props.footerButtons.forEach(but => {
-                buttons.push(<button key={idx} type="button" className="btn btn-secondary" onClick={ but.value ? this.customClose.bind(this, but.value) : this.closeModal }>
+                buttons.push(<button key={idx} type="button" className="btn btn-secondary" onClick={ but.value ? this.customClose.bind(this, but.value) : this.triggerClose.bind(this) }>
                     { but.title }
                 </button>);
                 idx++;
             });
             return buttons;
         }
-        return <button type="button" className="btn btn-secondary" onClick={ this.closeModal.bind(this, 'CLOSE') }>
+        return <button type="button" className="btn btn-secondary" onClick={ this.customClose.bind(this, 'CLOSE') }>
             <Trans>common.actions.close</Trans>
         </button>
     }
@@ -153,13 +143,13 @@ export class WModal extends React.Component {
                 aria-hidden="true"
                 style={{ display: this.state.display }} >
                 <div className="modal-dialog" role="document">
-                    <div className={ `modal-content ${getContentStyle(this.props.appearance)} ${getTextStyle(this.props.appearance)}` }>
-                        <div className={ `modal-header ${getHeaderStyle(this.props.appearance)}` } >
+                    <div className={ `modal-content ${getContentStyle(this.props.appearance)}` }>
+                        <div className={ `modal-header ${getHeaderStyle(this.props.appearance)} ${getTextStyle(this.props.appearance)}` } >
                             <h3>{ this.props.title }</h3>
                             { this.props.headerClose ? <button type="button"
                                 className="close"
                                 aria-label="Close"
-                                onClick={ this.closeModal.bind(this, 'XCLOSE') } >
+                                onClick={ this.customClose.bind(this, 'XCLOSE') } >
                                 <span aria-hidden="true">&times;</span>
                             </button> : ''}
                         </div>

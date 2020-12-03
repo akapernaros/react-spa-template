@@ -30,7 +30,7 @@ export default function ButtonExample(props) {
         <Widget.Modal title={t('app.kitchensink.modal.title')}
                       show={ show }
                       headerClose={ false }
-                      appearance={ APPEARANCE.LIGHT }
+                      appearance={ APPEARANCE.NORMAL }
                       footerButtons={ buttons }
                       closeFunction={ handleClose.bind(this) }>
             <div className="row">

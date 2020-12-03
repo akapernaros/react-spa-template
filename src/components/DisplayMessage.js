@@ -41,6 +41,7 @@ class DisplayMessage extends React.Component {
         }
 
         this.resetState = this.resetState.bind(this);
+        this.resetFatal = this.resetFatal.bind(this);
 
         this.logHandler = new MessageHandler((message) => {
             console.log(`Internal message log [${message.code}:${message.severity}], ${message.message}`);
@@ -49,14 +50,16 @@ class DisplayMessage extends React.Component {
         this.handler = new MessageHandler((message) => {
            this.setState({
                message: message,
-               showMessage: true
+               showMessage: true,
+               showFatal: false
            });
         }, SEVERITY.WARNING, SEVERITY.INFO, SEVERITY.ERROR);
 
         this.fatalHandler = new MessageHandler((message) => {
             this.setState({
                 message: message,
-                showFatal: true
+                showFatal: true,
+                showMessage: false
             });
         }, SEVERITY.FATAL);
 
