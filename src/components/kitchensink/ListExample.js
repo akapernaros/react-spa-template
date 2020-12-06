@@ -1,8 +1,8 @@
-import { Widget } from "../../shared/components";
-import React from "react";
-import { withTranslation } from "react-i18next";
-import { WorldData } from "./Mockdata";
-import {ChatQuote, PlusCircle} from 'react-bootstrap-icons';
+import { Widget } from '../../shared/components';
+import React from 'react';
+import { withTranslation } from 'react-i18next';
+import { WorldData } from './Mockdata';
+import { ChatQuote, PlusCircle } from 'react-bootstrap-icons';
 
 
 class ListExample extends React.Component {
@@ -14,7 +14,7 @@ class ListExample extends React.Component {
     }
 
     getHeaderContent() {
-        return <div className="nav bg-primary p-2">
+        return <div className="nav py-2">
             <div className="nav-item col">
                 <h4 className="font-weight-bold text-light">  { this.props.t('app.kitchensink.list.header-title') } </h4>
             </div>
@@ -42,7 +42,9 @@ class ListExample extends React.Component {
                                 <Widget.List
                                     content={ this.state.data }
                                     headerContent={ this.getHeaderContent }
+                                    headerStyle={"bg-primary"}
                                     keyAttribute={ "id" }
+                                    expandable={ true }
                                     render={ element => (<ListContent entry={ element }/>)} />
                             </div>
                         </div>

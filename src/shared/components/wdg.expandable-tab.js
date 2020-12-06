@@ -60,7 +60,7 @@ class WExpandableBody extends React.Component {
 
 
     render() {
-        let cl = `mb-2 ${ this.props.className }`;
+        let cl = `mb-2 ${ this.props.bodyClass }`;
 
         return <div className={ cl }>
             { this.props.children }
@@ -68,13 +68,9 @@ class WExpandableBody extends React.Component {
     }
 }
 
-WExpandableBody.defaultProps = {
-    className: 'bg-light'
-}
-
 WExpandableBody.propTypes = {
     children: PropTypes.any.isRequired,
-    className: PropTypes.string
+    bodyClass: PropTypes.string.isRequired
 }
 
 class WExpandableSection extends React.Component {
@@ -92,7 +88,7 @@ class WExpandableSection extends React.Component {
     render() {
         let body;
         if (this.state.expanded === true) {
-            body = this.props.children;
+            body = <WExpandableBody bodyClass={ this.props.bodyClass }>{ this.props.children }</WExpandableBody>;
         }
         return  <div className="bg-light">
                     <WExpandableHeader expanded={ this.state.expanded }
@@ -108,7 +104,8 @@ class WExpandableSection extends React.Component {
 WExpandableSection.defaultProps = {
     size: 24,
     expanded: false,
-    headerClass: 'bg-info'
+    headerClass: 'bg-info',
+    bodyClass: 'bg-light'
 }
 
 WExpandableSection.propTypes = {
@@ -116,7 +113,8 @@ WExpandableSection.propTypes = {
     title: PropTypes.string.isRequired,
     size: PropTypes.number,
     expanded: PropTypes.bool,
-    headerClass: PropTypes.string
+    headerClass: PropTypes.string,
+    bodyClass: PropTypes.string
 }
 
-export { WExpandableSection, WExpandableBody };
+export { WExpandableSection };

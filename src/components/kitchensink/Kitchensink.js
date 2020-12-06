@@ -3,7 +3,7 @@ import {Widget} from "../../shared/components";
 import DropDownExample from "./DropDownExample";
 import ButtonExample from "./ButtonExample";
 import ExpandableSectionExample from "./ExpandableSectionExample";
-import TwoWayDatabingExample from "./TwoWayDatabingExample";
+import TwoWayDatabingExample from "./TwoWayDatabindingExample";
 import ListExample from "./ListExample";
 import BackendApi from "./BackendApi";
 import ErrorSection from "./ErrorSection";

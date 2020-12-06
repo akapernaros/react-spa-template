@@ -6,6 +6,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.8.4] - 2020-12-06
+### Added
+- Hide & Show content feature to List component.
+ 
+### Changed
+- Refactored: ExpandableBody is not exposed anymore, only used internally
+ 
 ## [0.8.3] - 2020-12-04
 ### Changed
 - Upgraded to React17

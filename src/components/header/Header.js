@@ -2,8 +2,6 @@ import React from 'react';
 import { Widget } from "../../shared/components";
 import { withTranslation } from "react-i18next";
 
-
-
 class Header extends React.Component {
 
     constructor(props) {
@@ -27,7 +25,6 @@ class Header extends React.Component {
             </Widget.NavbarItem>
 
             <div className="col-lg-7">
-
             </div>
 
             <div className="col-lg-1">
